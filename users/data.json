@@ -1,14 +1,14 @@
 [
     {
         "name": "Aaron",
-        "age": 25
+        "password": "aapassword"
     },
     {
         "name": "Tori",
-        "age": 26
+        "password": "tspassword"
     },
     {
         "name": "Mia",
-        "age": 1
+        "password": "lsbpassword"
     }
 ]

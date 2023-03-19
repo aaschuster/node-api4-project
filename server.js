@@ -18,9 +18,9 @@ server.get("/api/users", (req, res, next) => {
         .catch(next);
 })
 
-server.post("/api/users", (req, res) => {
-    data.push(req.body);
-    res.json(req.body);
+server.post("/api/register", (req, res) => {
+    Users.register(req.body)
+        .then( newUser => res.json(newUser))
 })
 
 server.use( (err, req, res, next) => {
