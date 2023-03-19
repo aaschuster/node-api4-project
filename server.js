@@ -18,13 +18,20 @@ server.get("/api/users", (req, res, next) => {
         .catch(next);
 })
 
-server.post("/api/register", (req, res) => {
+server.post("/api/register", (req, res, next) => {
     Users.register(req.body)
-        .then( newUser => res.json(newUser))
+        .then( newUser => res.status(201).json(newUser))
+        .catch(next);
+})
+
+server.post("/api/login", (req, res, next) => {
+    Users.login(req.body)
+        .then( resFromLogin => res.json(resFromLogin))
+        .catch(next);
 })
 
 server.use( (err, req, res, next) => {
-    res.staus(err.status || 500).json({
+    res.status(err.status || 500).json({
         message: err.message
     })
 });

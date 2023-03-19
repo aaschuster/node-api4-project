@@ -10,8 +10,19 @@ function register( {username, password} ) {
     return Promise.resolve(newUser);
 }
 
+function login( {username, password} ) {
+    const user = data.find( user => user.username === username);
+
+    const failMessage = {message: "Username or password not valid."};
+    const successMessage = {message: `Login successful. Welcome ${username}`};
+
+    if(!user || !user.password || user.password !== password) return Promise.resolve(failMessage);
+    return Promise.resolve(successMessage);
+}
+
 module.exports = 
 {
     get,
-    register
+    register,
+    login
 };
